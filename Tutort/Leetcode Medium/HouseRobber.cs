@@ -10,9 +10,10 @@ namespace Tutort.Leetcode_Medium
     {
         static void Main(string[] args)
         {
-            int[] nums = { 2,7,9,3,1};
-            Console.WriteLine(GeneralRecursion(nums));
-            //don't robber adjacent side homes--
+            int[] nums = {2,7,9,3,1 };
+            int[] pow = new int[nums.Length];
+            Array.Fill(pow, -1);
+            Console.WriteLine(Memorization(nums, nums.Length - 1, pow)); 
         }
 
         private static int GeneralRecursion(int[] nums)
@@ -39,6 +40,21 @@ namespace Tutort.Leetcode_Medium
             }
 
             return Math.Max(maxcount1, maxcount2);
+        }
+
+        private static int Memorization(int[] nums,int index, int[] dp)
+        {
+            if(index == 0) return nums[0];
+            else if (index == 1) return Math.Max(nums[0], nums[1]);
+            else if (dp[index] != -1)
+            {
+                return dp[index];
+            }
+
+            int include = nums[index]+Memorization(nums,index-2,dp);
+            int exclude = Memorization(nums, index - 1, dp);
+            dp[index] = Math.Max(include, exclude);
+            return dp[index];
         }
     }
 }
