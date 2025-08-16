@@ -5,12 +5,10 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Tutort.Leetcode_Easy.palindrome</StartupObject>
+    <StartupObject>Tutort.BasicRecursion.PrintSumOfNnaturalNumbers</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interview Programs\" />
-    <Folder Include="Leetcode Medium\" />
     <Folder Include="Leetcode Hard\" />
   </ItemGroup>
 

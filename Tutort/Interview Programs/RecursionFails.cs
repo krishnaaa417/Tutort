@@ -11,20 +11,18 @@ namespace Tutort.Interview_Programs
         static void Main(string[] args)
         {
 
-            Console.WriteLine(Recursions(5)); ;
+            Console.WriteLine(Recursions(0)); ;
         }
 
         private static int Recursions(int n)
         {
-            
-            if (n == 0)
+            if (n == 5)
             {
                 return 0 ;
                 
             }
-            Console.WriteLine("krishna..");
-            return Recursions(n-1);
-           
+            Console.WriteLine(n);
+            return Recursions(n+1);
         }
     }
 }

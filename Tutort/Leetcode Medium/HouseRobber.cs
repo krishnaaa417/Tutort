@@ -11,6 +11,7 @@ namespace Tutort.Leetcode_Medium
         static void Main(string[] args)
         {
             int[] nums = {2,7,9,3,1 };
+            int n  = nums.Length;
             int[] pow = new int[nums.Length];
             Array.Fill(pow, -1);
             Console.WriteLine(Memorization(nums, nums.Length - 1, pow)); 
@@ -54,6 +55,19 @@ namespace Tutort.Leetcode_Medium
             int include = nums[index]+Memorization(nums,index-2,dp);
             int exclude = Memorization(nums, index - 1, dp);
             dp[index] = Math.Max(include, exclude);
+            return dp[index];
+        }
+
+        private static int Tabulization(int[] nums, int index, int[] dp)
+        {
+            if (index == 0) return nums[0];
+            else if(index == 1) return Math.Max(nums[0],nums[1]);
+            dp[0] = nums[0];
+            dp[1] = Math.Max(nums[0], nums[1]);
+            for (int i = 2; i < nums.Length; i++)
+            {
+                dp[i] = nums[i] + Math.Max(dp[i-2], dp[i-1]);
+            }
             return dp[index];
         }
     }
