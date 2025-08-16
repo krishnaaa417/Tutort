@@ -10,27 +10,7 @@ namespace Tutort.Leetcode_Easy
     {
         static void Main(string[] args)
         {
-            string s = "loveda";
-            Console.WriteLine(Ispalindrome(s));
-        }
-
-        private static bool Ispalindrome(string s)
-        {
-            int i = 0;
-            int j = s.Length - 1;
-            bool b = true;
-
-            while (i < j)
-            {
-                if (s[i] != s[j])
-                {
-                    b = false;
-                    return b;
-                }
-                i++; ;
-                j--;
-            }
-            return b;
+            Console.WriteLine("Palindrome..");
         }
     }
 }
